@@ -4,37 +4,9 @@ import { Button, Grid, Header, List, Segment } from 'semantic-ui-react'
 import { Navbar } from 'components'
 import 'styling/semantic.less'
 
-const leftItems = [
-  {
-    as: 'a',
-    content: 'Documentation',
-    href: 'https://react.semantic-ui.com/',
-    icon: 'book',
-    key: 'docs',
-    target: '_blank'
-  },
-]
-const rightItems = [
-  {
-    as: 'a',
-    content: 'Github',
-    href: 'https://github.com/Semantic-Org/Semantic-UI-React',
-    icon: 'github',
-    key: 'github',
-    target: '_blank'
-  },
-  {
-    as: 'a',
-    content: 'Stack Overflow',
-    icon: 'stack overflow',
-    href: 'https://stackoverflow.com/questions/tagged/semantic-ui-react?sort=votes',
-    key: 'so',
-    target: '_blank',
-  }
-]
-
 const App = () => (
-  <Navbar leftItems={leftItems} rightItems={rightItems}>
+  <div>
+  <Navbar />
     <Segment>
       <Header as='h1'>Your example App</Header>
 
@@ -113,8 +85,6 @@ const App = () => (
             app. An example is below:
           </p>
 
-          <CustomMessage>Hey, it is a custom message</CustomMessage>
-
           <p>
             Take a look <code>/src/components/CustomMessage</code> directory. The are some important things:
           </p>
@@ -138,7 +108,7 @@ const App = () => (
         </Grid.Column>
       </Grid>
     </Segment>
-  </Navbar>
+  </div>
 )
 
 export default App
