@@ -2,4 +2,3 @@
     User Variable Overrides
 *******************************/
 
-@primaryColor: @pink;
