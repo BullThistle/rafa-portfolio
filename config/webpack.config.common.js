@@ -1,14 +1,14 @@
-const autoprefixer = require('autoprefixer')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const path = require('path')
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
-const paths = require('./paths')
+const paths = require('./paths');
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 // Some apps do not use client-side routing with pushState.
 // For these, "homepage" can be set to "." to enable relative asset paths.
-const shouldUseRelativeAssetPaths = paths.servedPath === './'
+const shouldUseRelativeAssetPaths = paths.servedPath === './';
 // Options for autoPrefixer
 const autoprefixerOptions = {
   browsers: [
@@ -18,17 +18,17 @@ const autoprefixerOptions = {
     'not ie < 9', // React doesn't support IE8 anyway
   ],
   flexbox: 'no-2009',
-}
+};
 // Note: defined here because it will be used more than once.
-const cssFilename = 'static/css/[name].[contenthash:8].css'
-const cssClassName = isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]'
+const cssFilename = 'static/css/[name].[contenthash:8].css';
+const cssClassName = isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]';
 // Heads up!
 // We use ExtractTextPlugin to extract LESS content in production environment,
 // we will still use fallback to style-loader in development.
 const extractLess = new ExtractTextPlugin({
   filename: cssFilename,
-  disable: isDev
-})
+  disable: isDev,
+});
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
@@ -36,9 +36,9 @@ const extractLess = new ExtractTextPlugin({
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
   { publicPath: Array(cssFilename.split('/').length).join('../') }
-  : {}
+  : {};
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.NODE_ENV === 'production' && process.env.GENERATE_SOURCEMAP !== 'false'
+const shouldUseSourceMap = process.env.NODE_ENV === 'production' && process.env.GENERATE_SOURCEMAP !== 'false';
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -62,6 +62,11 @@ module.exports = {
           // directory for faster rebuilds.
           cacheDirectory: isDev,
         },
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['eslint-loader'],
       },
       // "postcss" loader applies autoprefixer to our LESS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -101,7 +106,7 @@ module.exports = {
                 ],
               },
             },
-            { loader: require.resolve('less-loader') }
+            { loader: require.resolve('less-loader') },
           ],
           ...extractTextPluginOptions,
         }),
@@ -144,7 +149,7 @@ module.exports = {
                 ],
               },
             },
-            { loader: require.resolve('less-loader') }
+            { loader: require.resolve('less-loader') },
           ],
         }),
       },
@@ -197,8 +202,7 @@ module.exports = {
       paths.appSrc,
     ].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
+      process.env.NODE_PATH.split(path.delimiter).filter(Boolean) ),
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
@@ -212,5 +216,5 @@ module.exports = {
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
-  }
-}
+  },
+};
