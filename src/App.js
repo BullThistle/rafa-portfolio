@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button, Grid, Header, List, Segment } from 'semantic-ui-react';
-
-import { Navbar } from 'components';
 import 'styling/semantic.less';
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => (
   <div>
