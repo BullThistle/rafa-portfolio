@@ -66,7 +66,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['eslint-loader'],
+        use: ['babel-loader', 'eslint-loader'],
       },
       // "postcss" loader applies autoprefixer to our LESS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
