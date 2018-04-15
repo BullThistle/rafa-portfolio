@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React from 'react';
+import { Menu } from 'semantic-ui-react';
 
-export default class Navbar extends Component {
+const Navbar = () => (
+  <Menu>
+    <Menu.Item header>Boilerplate</Menu.Item>
+  </Menu>
+);
 
-  render() {
-
-    return (
-      <Menu>
-        <Menu.Item header>Boilerplate</Menu.Item>
-      </Menu>
-    )
-  }
-}
+export default Navbar;
