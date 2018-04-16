@@ -3,7 +3,10 @@ import { Menu } from 'semantic-ui-react';
 
 const Navbar = () => (
   <Menu>
-    <Menu.Item header>Boilerplate</Menu.Item>
+    <Menu.Item header href="/">
+      Boilerplate
+    </Menu.Item>
+    <Menu.Item href="/about">About</Menu.Item>
   </Menu>
 );
 
