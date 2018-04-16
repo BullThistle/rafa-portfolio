@@ -1,10 +1,11 @@
 import React from 'react';
 import 'styling/semantic.less';
-import Navbar from './components/Navbar/Navbar';
+import { Navbar, Home } from 'components';
 
 const App = () => (
   <div>
     <Navbar />
+    <Home />
   </div>
 );
 
