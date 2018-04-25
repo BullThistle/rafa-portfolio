@@ -1,5 +1,4 @@
-Stripped down boilerplate based off Semantic UI Reacts webpack3 example.
-Redux and react-router were added.
+My web development portfolio site
 
 ### How to Use
 1. Clone repo
